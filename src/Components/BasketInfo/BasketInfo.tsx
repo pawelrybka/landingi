@@ -5,6 +5,7 @@ import Context from '../../Context/Context'
 import Chart from '../Chart/Chart';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import { AiOutlineClose } from 'react-icons/ai'
+import { motion } from "framer-motion"
 
 interface props{
   basketInfoVisible: boolean
@@ -17,7 +18,13 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
   
   return (
     <>
-      <div className={styles.basketinfo}>
+      <motion.div 
+        className={styles.basketinfo}
+        initial={{  opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: .3 }}
+      >
         <div className={styles.basketinfo__header}>
           <div>
             <span>Basket ID: </span> {selectedBasket?.id}
@@ -32,7 +39,7 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
           </button>
         </div>
         <Chart/>
-      </div>
+      </motion.div>
       <Backdrop/>
     </>
   )

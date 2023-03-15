@@ -4,6 +4,7 @@ import styles from './Main.module.css'
 import axios from 'axios'
 import { SlBasket } from 'react-icons/sl';
 import BasketInfo from '../BasketInfo/BasketInfo';
+import { AnimatePresence } from 'framer-motion'
 
 interface products {
     discountPercentage: number
@@ -61,12 +62,14 @@ const Main = () => {
                 <SlBasket size={30}/>
             </button>
         ))}
-        {basketInfoVisible && 
-            <BasketInfo 
-                basketInfoVisible={basketInfoVisible}
-                setBasketInfoVisible={setBasketInfoVisible}
-            />
-        }
+        <AnimatePresence>
+            {basketInfoVisible && 
+                <BasketInfo 
+                    basketInfoVisible={basketInfoVisible}
+                    setBasketInfoVisible={setBasketInfoVisible}
+                />
+            }
+        </AnimatePresence>
     </div>
   )
 }
