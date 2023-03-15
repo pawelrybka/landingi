@@ -1,0 +1,9 @@
+.chart{
+    background-color: black;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid #f49131;
+    background-color: #251c35;
+    display: flex;
+    justify-content: center;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef  } from 'react'
 import Context from '../../Context/Context'
 import styles from './Main.module.css'
 import axios from 'axios'
@@ -15,7 +15,7 @@ interface products {
     total: number
 }
 
-interface single {
+interface basket {
     id: number
     userId: number
     products: products[]
@@ -29,16 +29,21 @@ const Main = () => {
     
     const { setSelectedBasket } = useContext(Context);
 
-    const[baskets, setBaskets] = useState<single[]>([])
+    const[baskets, setBaskets] = useState<basket[]>([])
 
     const[basketInfoVisible, setBasketInfoVisible]= useState(false)
 
+    const shouldLog = useRef(true)
+
     useEffect(() => {
-        axios.get('https://dummyjson.com/carts')
-        .then(res => {
-            const data = res.data.carts
-            setBaskets(data)
-        })
+        if(shouldLog.current){
+            shouldLog.current = false
+            axios.get('https://dummyjson.com/carts')
+            .then(res => {
+                const data = res.data.carts
+                setBaskets(data)
+            })
+        }
     })
 
     return (

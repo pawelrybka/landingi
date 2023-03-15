@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './BasketInfo.module.css'
 import { useContext } from 'react';
 import Context from '../../Context/Context'
+import Chart from '../Chart/Chart';
 
 interface props{
   basketInfoVisible: boolean
@@ -23,6 +24,7 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
         X
       </button>
       {selectedBasket?.id}
+      <Chart/>
     </div>
   )
 }
