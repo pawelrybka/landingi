@@ -9,12 +9,15 @@
 
 .main__button{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     transition: .3s ease-in-out;
     cursor: pointer;
+    border-radius: .5rem;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
 }
 
 .main__button:hover{

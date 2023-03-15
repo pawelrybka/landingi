@@ -57,8 +57,8 @@ const Main = () => {
                     setSelectedBasket(basket)
                 }}
             >
-                <SlBasket size={30}/>
                 {basket.id}
+                <SlBasket size={30}/>
             </button>
         ))}
         {basketInfoVisible && 

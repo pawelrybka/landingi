@@ -5,8 +5,8 @@ import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   LineElement,
-  CategoryScale, // x axis
-  LinearScale, // y axis
+  CategoryScale, 
+  LinearScale, 
   PointElement
 } from 'chart.js'
 import styles from './Chart.module.css'
@@ -22,17 +22,17 @@ const Chart = () => {
 
     const { selectedBasket } = useContext(Context);
 
-    const products = selectedBasket?.products
+    const products =  selectedBasket?.products
 
     const data = {
-    datasets: [{
-        label: 'Chart',
-        data: products,
-        backgroundColor: 'red',
-        borderColor: 'red',
-        parsing: {
-        xAxisKey: 'title',
-        yAxisKey: 'total'
+        datasets: [{
+            label: 'Chart',
+            data: products,
+            backgroundColor: 'red',
+            borderColor: 'red',
+            parsing: {
+            xAxisKey: 'title',
+            yAxisKey: 'total'
         }
     }, {
         label: 'Chart',

@@ -8,5 +8,32 @@
 	display: flex;
 	flex-direction: column;
     background-color: white;
+	z-index: 2;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+	border: 1px solid rgb(40,119,246);;
+	gap: 1rem;
+}
+
+.basketinfo__header{
+	padding: 1rem;
+	border-radius: 1rem 1rem 0 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(40,119,246);
+	color: white;
+}
+
+.basketinfo__header button{
+    padding: .5rem;
+    background-color:  rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+    color: var(--text);
 }
 

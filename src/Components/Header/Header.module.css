@@ -1,11 +1,11 @@
 .header{
     padding: 2rem;
+    background-color: rgb(40,119,246);
 }
 
 .header__content{
     display: flex;
     justify-content: space-between;
-    
     align-items: center;
     padding: 0 2rem;
 }
