@@ -1,0 +1,12 @@
+.basketinfo{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    width: min(90%, 600px, 90vw);
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+    background-color: red;
+}
+

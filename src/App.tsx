@@ -6,11 +6,6 @@ import Main from './Components/Main/Main';
 
 function App() {
 
-  fetch('https://dummyjson.com/carts')
-  .then(res => res.json())
-  .then(console.log);
-
-
   return (
     <MainLayout>
       <Header/>

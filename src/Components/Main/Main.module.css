@@ -1,8 +1,23 @@
 .main{
-    background-color: green;
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.main__button{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.main__button:hover{
+    transform: scale(105%);
 }
 
