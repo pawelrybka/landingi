@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import Context from '../../Context/Context'
 import styles from './Main.module.css'
 import axios from 'axios'
 import { SlBasket } from 'react-icons/sl';
@@ -25,7 +26,10 @@ interface single {
 }
 
 const Main = () => {
-    const[objects, setObjects] = useState<single[]>([])
+    
+    const { setSelectedBasket } = useContext(Context);
+
+    const[baskets, setBaskets] = useState<single[]>([])
 
     const[basketInfoVisible, setBasketInfoVisible]= useState(false)
 
@@ -33,16 +37,23 @@ const Main = () => {
         axios.get('https://dummyjson.com/carts')
         .then(res => {
             const data = res.data.carts
-            setObjects(data)
+            setBaskets(data)
         })
     })
- 
+
     return (
     <div className={styles.main}>
-       {objects.map((object) => (
-            <button className={styles.main__button} onClick={() => setBasketInfoVisible(!basketInfoVisible)}>
+       {baskets.map((basket) => (
+            <button 
+                key={basket.id}     
+                className={styles.main__button} 
+                onClick={() => {
+                    setBasketInfoVisible(!basketInfoVisible)
+                    setSelectedBasket(basket)
+                }}
+            >
                 <SlBasket size={30}/>
-                {object.id}
+                {basket.id}
             </button>
         ))}
         {basketInfoVisible && 
@@ -55,5 +66,5 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;
 
