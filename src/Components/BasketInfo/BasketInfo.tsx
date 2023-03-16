@@ -17,18 +17,17 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
   const { selectedBasket, setSelectedBasket, baskets, setBaskets } = useContext(Context);
   
   async function handleDelete() {
-    try {
-      const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
-        method: "DELETE",
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      setBaskets(baskets.filter((item) => item.id !== selectedBasket?.id));
-    } catch (error) {
-      console.error("Error:", error);
+    const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
     }
   }
+
+  console.log(selectedBasket)
 
   return (
     <>
@@ -41,7 +40,7 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
       >
         <div className={styles.basketinfo__header}>
           <div>
-            <span>Basket ID: </span> {selectedBasket?.id}
+            <span>Basket ID:</span> {selectedBasket?.id}
           </div>
           <button 
             onClick={() => {

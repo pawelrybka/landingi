@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import axios from 'axios'
 import Context from '../../Context/Context'
 import { Line } from 'react-chartjs-2'
 import {
@@ -22,36 +21,41 @@ const Chart = () => {
 
     const { selectedBasket } = useContext(Context);
 
-    const products =  selectedBasket?.products
+    const normalPrices = selectedBasket?.products
+
+    const discountedPrices = selectedBasket?.products.map(product => ({
+        ...product, price: product.price * (1 - product.discountPercentage / 100),
+      }));
 
     const data = {
-        datasets: [{
-            label: 'Chart',
-            data: products,
-            backgroundColor: 'red',
-            borderColor: 'red',
-            parsing: {
-            xAxisKey: 'title',
-            yAxisKey: 'total'
-        }
-    }, {
-        label: 'Chart',
-        data: products,
-        backgroundColor: 'blue',
-        borderColor: 'blue',
-        parsing: {
-        xAxisKey: 'title',
-        yAxisKey: 'discountedPrice'
-        }
-    },]
+        datasets: [
+            {
+                data: normalPrices,
+                backgroundColor: 'black',
+                borderColor: 'black',
+                parsing: {
+                    xAxisKey: 'title',
+                    yAxisKey: 'price'
+                }
+            }, 
+            {
+                data: discountedPrices,
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+                parsing: {
+                    xAxisKey: 'title',
+                    yAxisKey: 'price'
+                }
+            },
+        ]
     };
 
     const options = {
-    scales: {
-        y: {
-        beginAtZero: true
+        scales: {
+            y: {
+                beginAtZero: true
+            }
         }
-    }
     }
 
     return (
