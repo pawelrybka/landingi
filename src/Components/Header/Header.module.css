@@ -1,6 +1,7 @@
 .header{
     padding: 2rem;
     background-color: rgb(40,119,246);
+    color: white;
 }
 
 .header__content{

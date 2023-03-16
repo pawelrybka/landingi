@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from './BasketInfo.module.css'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Context from '../../Context/Context'
 import Chart from '../Chart/Chart';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import { AiOutlineClose } from 'react-icons/ai'
 import { motion } from "framer-motion"
+import { BsTrash } from 'react-icons/bs'
+import DeleteAlert from '../DeleteAlert/DeleteAlert';
 
 interface props{
   basketInfoVisible: boolean
@@ -16,16 +18,18 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
   
   const { selectedBasket, setSelectedBasket, baskets, setBaskets } = useContext(Context);
   
-  async function handleDelete() {
-    const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-    });
+  const[deleteAlertVisible, setDeleteAlertVisible] = useState(false)
+
+  // async function handleDelete() {
+  //   const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
+  //     method: 'DELETE',
+  //     headers: { 'Content-Type': 'application/json' },
+  //   });
   
-    if (response.ok) {
-      setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
-    }
-  }
+  //   if (response.ok) {
+  //     setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
+  //   }
+  // }
 
   return (
     <>
@@ -50,17 +54,23 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
           </button>
         </div>
         <Chart/>
-        <button
-          onClick={() => {
-            handleDelete()
-            setBasketInfoVisible(!basketInfoVisible)
-            setSelectedBasket(null)
-          }}
-        >
-          Delete basket
-        </button>
+        <div className={styles.basketinfo__buttons}>
+          <button
+            onClick={() => {
+              // setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
+              // setBasketInfoVisible(!basketInfoVisible)
+              // setSelectedBasket(null)
+              setDeleteAlertVisible(!deleteAlertVisible)
+            }}
+          >
+            <BsTrash size={30}/>
+            Delete basket
+          </button>
+        </div>
       </motion.div>
       <Backdrop/>
+      {deleteAlertVisible && <DeleteAlert/>}
+    
     </>
   )
 }

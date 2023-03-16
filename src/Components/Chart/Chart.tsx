@@ -6,9 +6,10 @@ import {
   LineElement,
   CategoryScale, 
   LinearScale, 
-  PointElement
+  PointElement,
 } from 'chart.js'
 import styles from './Chart.module.css'
+import 'chart.js/auto';
 
 ChartJS.register(
   LineElement,
@@ -29,20 +30,20 @@ const Chart = () => {
 
     const discountedPrices = selectedBasket?.products.map(product => product.price * (1 - product.discountPercentage / 100))
 
-    console.log(selectedBasket)
-
     const data = {
         labels: titlesAdjusted,
         datasets: [
-            {
+            {   
+                label: 'Prices',
                 data: normalPricesTitle,
-                backgroundColor: 'black',
-                borderColor: 'black',
-            }, 
-            {
-                data: discountedPrices,
                 backgroundColor: 'blue',
                 borderColor: 'blue',
+            }, 
+            {
+                label: 'Discounted price',
+                data: discountedPrices,
+                backgroundColor: 'black',
+                borderColor: 'black',
             },
         ]
     };
@@ -52,9 +53,20 @@ const Chart = () => {
             y: {
                 beginAtZero: true
             },
-        }
+        },
+        plugins: {
+            legend: {
+              display: true,
+                labels: {
+                    font: {
+                        size: 14,
+                    }
+                },
+               
+            },
+        },
     }
-
+    
     return (
     <div className={styles.chart}>
         <Line

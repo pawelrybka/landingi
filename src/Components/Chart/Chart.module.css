@@ -4,3 +4,8 @@
     display: flex;
     justify-content: center;
 }
+
+.chartjs-legend {
+    display: block;
+}
+
