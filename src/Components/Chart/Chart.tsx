@@ -18,34 +18,31 @@ ChartJS.register(
 )
 
 const Chart = () => {
-
+    
     const { selectedBasket } = useContext(Context);
 
-    const normalPrices = selectedBasket?.products
+    const titles = selectedBasket?.products.map(product => product.title)
 
-    const discountedPrices = selectedBasket?.products.map(product => ({
-        ...product, price: product.price * (1 - product.discountPercentage / 100),
-      }));
+    const titlesAdjusted = titles?.map(title => title.split(' '))
+
+    const normalPricesTitle = selectedBasket?.products.map(product => product.price)
+
+    const discountedPrices = selectedBasket?.products.map(product => product.price * (1 - product.discountPercentage / 100))
+
+    console.log(selectedBasket)
 
     const data = {
+        labels: titlesAdjusted,
         datasets: [
             {
-                data: normalPrices,
+                data: normalPricesTitle,
                 backgroundColor: 'black',
                 borderColor: 'black',
-                parsing: {
-                    xAxisKey: 'title',
-                    yAxisKey: 'price'
-                }
             }, 
             {
                 data: discountedPrices,
                 backgroundColor: 'blue',
                 borderColor: 'blue',
-                parsing: {
-                    xAxisKey: 'title',
-                    yAxisKey: 'price'
-                }
             },
         ]
     };
@@ -54,7 +51,7 @@ const Chart = () => {
         scales: {
             y: {
                 beginAtZero: true
-            }
+            },
         }
     }
 

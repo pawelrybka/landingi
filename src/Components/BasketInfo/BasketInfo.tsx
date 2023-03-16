@@ -27,8 +27,6 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
     }
   }
 
-  console.log(selectedBasket)
-
   return (
     <>
       <motion.div 
