@@ -23,11 +23,18 @@ interface basket {
 interface BasketContextType {
     selectedBasket: basket | null;
     setSelectedBasket: (basket: basket | null) => void;
+    
+    baskets: basket[] | [],
+    setBaskets: (baskets: basket[] | []) => void;
 }
 
 const Context = createContext<BasketContextType>({
     selectedBasket: null,
-    setSelectedBasket: () => {}
+    setSelectedBasket: () => {},
+
+    baskets: [],
+    setBaskets: () => {}
+
 });
 
 export default Context;

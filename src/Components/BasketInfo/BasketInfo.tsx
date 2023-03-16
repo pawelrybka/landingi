@@ -14,8 +14,22 @@ interface props{
 
 const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
   
-  const { selectedBasket, setSelectedBasket } = useContext(Context);
+  const { selectedBasket, setSelectedBasket, baskets, setBaskets } = useContext(Context);
   
+  async function handleDelete() {
+    try {
+      const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
+        method: "DELETE",
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      setBaskets(baskets.filter((item) => item.id !== selectedBasket?.id));
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
   return (
     <>
       <motion.div 
@@ -39,6 +53,15 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
           </button>
         </div>
         <Chart/>
+        <button
+          onClick={() => {
+            handleDelete()
+            setBasketInfoVisible(!basketInfoVisible)
+            setSelectedBasket(null)
+          }}
+        >
+          Delete basket
+        </button>
       </motion.div>
       <Backdrop/>
     </>

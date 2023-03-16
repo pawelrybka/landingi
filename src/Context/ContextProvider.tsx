@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Context from "./Context";
 
 interface products {
@@ -29,8 +29,10 @@ const ContextProvider = ({ children }: ListProps) => {
     
     const [selectedBasket, setSelectedBasket] = useState<basket | null>(null);
   
+    const[baskets, setBaskets] = useState<basket[]>([])
+
     return (
-        <Context.Provider value={{ selectedBasket, setSelectedBasket }}>
+        <Context.Provider value={{ selectedBasket, setSelectedBasket, baskets, setBaskets }}>
             {children}
         </Context.Provider>
     );

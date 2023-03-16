@@ -28,9 +28,7 @@ interface basket {
 
 const Main = () => {
     
-    const { setSelectedBasket } = useContext(Context);
-
-    const[baskets, setBaskets] = useState<basket[]>([])
+    const { setSelectedBasket, baskets, setBaskets } = useContext(Context);
 
     const[basketInfoVisible, setBasketInfoVisible]= useState(false)
 
