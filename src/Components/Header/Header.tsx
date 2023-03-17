@@ -19,7 +19,7 @@ const Header = () => {
               <h2>Dashboard</h2>
             </div>
             <div className={styles.right} onClick={() => setAddBasketModalVisible(!addBasketModalVisible)}>
-              <h2>Add new basket</h2>
+              <h3>New basket</h3>
               <BsBasket3 size={30} />
             </div>
           </div>

@@ -1,5 +1,5 @@
 .header{
-    padding: 2rem;
+    padding: 1rem;
     background-color: var(--light-blue);
     color: var(--text);
 }
@@ -8,11 +8,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem;
 }
 
 .right{
     display: flex;
+    align-items: center;
     gap: 1rem;
     border: 2px solid var(--text);
     padding: .5rem;

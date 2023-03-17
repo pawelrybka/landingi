@@ -1,15 +1,15 @@
 .main{
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
-    flex-wrap: wrap;
     padding: 1rem;
+    overflow: auto;
 }
 
 .main__button{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     transition: .3s ease-in-out;
@@ -17,7 +17,13 @@
     border-radius: .5rem;
     border: none;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    background-color: transparent;
+    background-color: var(--text);
+    padding: .5rem 2rem;
+    color: grey;
+}
+
+.main__button h1{
+    color: var(--light-blue);
 }
 
 .main__button:hover{

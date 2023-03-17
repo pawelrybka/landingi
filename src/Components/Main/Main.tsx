@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useRef  } from 'react'
 import Context from '../../Context/Context'
 import styles from './Main.module.css'
 import axios from 'axios'
-import { SlBasket } from 'react-icons/sl';
+import { BsBasket3 } from 'react-icons/bs';
 import BasketInfo from '../BasketInfo/BasketInfo';
 import { AnimatePresence } from 'framer-motion'
 
@@ -54,8 +54,11 @@ const Main = () => {
                     setSelectedBasket(basket)
                 }}
             >
-                {basket.id}
-                <SlBasket size={30}/>
+                <div>
+                    <h1>{basket.id}</h1>
+                    <span>Basket ID</span>
+                </div>
+                <BsBasket3 size={30}/>
             </button>
         ))}
         <AnimatePresence>

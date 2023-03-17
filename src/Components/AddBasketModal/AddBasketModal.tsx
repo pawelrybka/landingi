@@ -34,11 +34,11 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
         transition={{ duration: .3 }}
       >
         <div className={styles.addBasketModal__header}>
-          <h3>Add new basket</h3>
+          <h3>New basket</h3>
           <button onClick={() => setAddBasketModalVisible(!addBasketModalVisible)}><AiOutlineClose size={20}/></button>
         </div>
         <div className={styles.addBasketModal__content}>
-          <span>Choose the id of the basket:</span>
+          <span>Enter basket ID:</span>
           <div className={styles.select}>
             <input 
               type="number" 
