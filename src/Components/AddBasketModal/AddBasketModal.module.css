@@ -53,6 +53,10 @@
 
 .select input{
 	border: 1px solid var(--light-blue);
+	padding: 1rem;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+	appearance: none;
 }
 
 .addBasketModal__content button{

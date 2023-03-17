@@ -71,8 +71,6 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
               type="number" 
               id="quantity" 
               name="quantity" 
-              min="1" 
-              max="20"
               value={value}
               onChange={(e) => setValue(parseInt(e.target.value))}
             />
