@@ -70,10 +70,11 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
             <input 
               type="number" 
               id="quantity"
+              inputMode='numeric'
               min={"1"}
               max={"20"} 
               name="quantity" 
-              step={"1"}
+              step="1"
               value={value}
               onChange={(e) => setValue(parseInt(e.target.value))}
             />
