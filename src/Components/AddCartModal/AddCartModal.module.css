@@ -1,10 +1,10 @@
-.addcartmodal{
+.addCartModal{
     position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
     width: min(90%, 600px, 90vw);
-	height: 80vh;
+	max-height: 80vh;
 	display: flex;
 	flex-direction: column;
     background-color: white;
@@ -13,6 +13,58 @@
 	border-radius: 1rem;
 	border: 1px solid rgb(40,119,246);;
 	gap: 1rem;
-	background-color: red;
+	background-color: white;
 }
 
+.addCartModal__header{
+	padding: 1rem;
+	border-radius: 1rem 1rem 0 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(40,119,246);
+	color: white;
+}
+
+.addCartModal__header button{
+	padding: .5rem;
+    background-color:  rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.addCartModal__content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	gap: 1rem;
+}
+
+.select{
+	display: flex;
+	gap: 1rem;
+}
+
+.select input{
+	border: 1px solid black;
+}
+
+.addCartModal__content button{
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	background-color: rgb(40,119,246);
+	border: none;
+	border-radius: .5rem;
+	cursor: pointer;
+	font-family: 'Lato', sans-serif;
+	color: white;
+}

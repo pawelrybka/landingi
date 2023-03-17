@@ -9,7 +9,7 @@ const Backdrop = () => {
 
   return (
     <motion.div 
-      className={`${styles.backdrop} ${deleteAlertVisible ? styles.up : ''} ${deleteAlertVisible ? styles.up : ''}`} 
+      className={`${styles.backdrop} ${deleteAlertVisible ? styles.up : ''}`} 
       initial={{  opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

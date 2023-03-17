@@ -11,7 +11,17 @@
     padding: 0 2rem;
 }
 
-.icon{
+.right{
+    display: flex;
+    gap: 1rem;
+    border: 2px solid white;
+    padding: .5rem;
+    border-radius: .5rem;
     cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.right:hover{
+    transform: scale(105%);
 }
 
