@@ -5,6 +5,7 @@ import Context from '../../Context/Context'
 import { AiOutlineClose } from 'react-icons/ai'
 import { motion } from "framer-motion"
 import { BsBasket3 } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 interface Props {
   addBasketModalVisible: boolean
@@ -23,7 +24,33 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
     console.log(data)
     setBaskets([...baskets, data])
   }
-              
+
+  const notify = () => {
+    toast.success('New basket added!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+
+  const error = () => {
+    toast.error('Basket is already on the list', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+
   return (
     <>
       <motion.div 
@@ -54,8 +81,12 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
                 if (!baskets.some(basket => basket.id === value)) {
                   fetchData()
                   setAddBasketModalVisible(!addBasketModalVisible)
-                }}
-              }
+                  notify()
+                } else{
+                  error()
+                  setAddBasketModalVisible(!addBasketModalVisible)
+                }
+              }}
             >
               Add new basket
               <BsBasket3 size={30}/>
