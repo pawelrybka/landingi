@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from './AddBasketModal.module.css'
 import Backdrop from '../../UI/Backdrop/Backdrop'
 import Context from '../../Context/Context'
+import axios from 'axios'
 import { AiOutlineClose } from 'react-icons/ai'
 import { motion } from "framer-motion"
 import { BsBasket3 } from 'react-icons/bs';
@@ -19,12 +20,15 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
   const[value, setValue] = useState(1)
 
   async function fetchData() {
-    const response = await fetch(`https://dummyjson.com/carts/${value}`);
-    const data = await response.json();
-    console.log(data)
-    setBaskets([...baskets, data])
+    try {
+      const response = await axios.get(`https://dummyjson.com/carts/${value}`);
+      const data = response.data;
+      setBaskets([...baskets, data]);
+    } catch (error) {
+      console.error(error);
+    }
   }
-
+  
   const notify = () => {
     toast.success('New basket added!', {
       position: "top-center",
