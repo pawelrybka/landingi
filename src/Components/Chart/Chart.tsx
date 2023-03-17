@@ -34,7 +34,7 @@ const Chart = () => {
         labels: titlesAdjusted,
         datasets: [
             {   
-                label: 'Prices',
+                label: 'Price',
                 data: normalPricesTitle,
                 backgroundColor: 'blue',
                 borderColor: 'blue',

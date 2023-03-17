@@ -1,7 +1,7 @@
 .header{
     padding: 2rem;
-    background-color: rgb(40,119,246);
-    color: white;
+    background-color: var(--light-blue);
+    color: var(--text);
 }
 
 .header__content{
@@ -14,7 +14,7 @@
 .right{
     display: flex;
     gap: 1rem;
-    border: 2px solid white;
+    border: 2px solid var(--text);
     padding: .5rem;
     border-radius: .5rem;
     cursor: pointer;

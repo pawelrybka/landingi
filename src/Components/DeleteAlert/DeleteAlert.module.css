@@ -9,8 +9,8 @@
     display: flex;
     flex-direction: column;
     z-index: 3;
-    border: 1px solid rgb(40,119,246);
-    background-color: white;
+    border: 1px solid var(--light-blue);
+    background-color: var(--text);
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -20,8 +20,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: rgb(40,119,246);
-	color: white;
+	background-color: var(--light-blue);
+	color: var(--text);
 }
 
 .deleteAlert__header button{
@@ -51,9 +51,9 @@
 
 .buttonSection button{
     padding: 1rem;
-    background-color: rgb(40,119,246);
+    background-color: var(--light-blue);
     border: none;
     border-radius: 12px;
-    color: white; 
+    color: var(--text); 
     cursor: pointer;
 }

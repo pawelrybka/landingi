@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root{
+  --text: rgba(255, 255, 255);
+  --light-blue: rgb(40,119,246);
+}
+
 *{
   margin: 0;
   padding: 0;

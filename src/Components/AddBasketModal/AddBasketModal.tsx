@@ -1,18 +1,17 @@
 import React, { useContext, useState } from 'react'
-import styles from './AddCartModal.module.css'
+import styles from './AddBasketModal.module.css'
 import Backdrop from '../../UI/Backdrop/Backdrop'
 import Context from '../../Context/Context'
 import { AiOutlineClose } from 'react-icons/ai'
 import { motion } from "framer-motion"
 import { BsBasket3 } from 'react-icons/bs';
-import axios from 'axios'
 
 interface Props {
-  addCartModalVisible: boolean
-  setAddCardModalVisible: React.Dispatch<React.SetStateAction<boolean>>
+  addBasketModalVisible: boolean
+  setAddBasketModalVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AddCartModal = ({ addCartModalVisible, setAddCardModalVisible }: Props) => {
+const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props) => {
   
   const { baskets, setBaskets } = useContext(Context);
 
@@ -28,17 +27,17 @@ const AddCartModal = ({ addCartModalVisible, setAddCardModalVisible }: Props) =>
   return (
     <>
       <motion.div 
-        className={styles.addCartModal}
+        className={styles.addBasketModal}
         initial={{  opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: .3 }}
       >
-        <div className={styles.addCartModal__header}>
+        <div className={styles.addBasketModal__header}>
           <h3>Add new basket</h3>
-          <button onClick={() => setAddCardModalVisible(!addCartModalVisible)}><AiOutlineClose size={20}/></button>
+          <button onClick={() => setAddBasketModalVisible(!addBasketModalVisible)}><AiOutlineClose size={20}/></button>
         </div>
-        <div className={styles.addCartModal__content}>
+        <div className={styles.addBasketModal__content}>
           <span>Choose the id of the basket:</span>
           <div className={styles.select}>
             <input 
@@ -54,7 +53,7 @@ const AddCartModal = ({ addCartModalVisible, setAddCardModalVisible }: Props) =>
               onClick={() => {
                 if (!baskets.some(basket => basket.id === value)) {
                   fetchData()
-                  setAddCardModalVisible(!addCartModalVisible)
+                  setAddBasketModalVisible(!addBasketModalVisible)
                 }}
               }
             >

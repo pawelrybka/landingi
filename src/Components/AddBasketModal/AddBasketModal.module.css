@@ -1,4 +1,4 @@
-.addCartModal{
+.addBasketModal{
     position: absolute;
 	top: 50%;
 	left: 50%;
@@ -7,26 +7,25 @@
 	max-height: 80vh;
 	display: flex;
 	flex-direction: column;
-    background-color: white;
+    background-color: var(--text);
 	z-index: 2;
 	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 	border-radius: 1rem;
-	border: 1px solid rgb(40,119,246);;
+	border: 1px solid var(--light-blue);
 	gap: 1rem;
-	background-color: white;
 }
 
-.addCartModal__header{
+.addBasketModal__header{
 	padding: 1rem;
 	border-radius: 1rem 1rem 0 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: rgb(40,119,246);
-	color: white;
+	background-color: var(--light-blue);
+	color: var(--text);
 }
 
-.addCartModal__header button{
+.addBasketModal__header button{
 	padding: .5rem;
     background-color:  rgba(0, 0, 0, 0.5);
     border: none;
@@ -38,7 +37,7 @@
     color: var(--text);
 }
 
-.addCartModal__content{
+.addBasketModal__content{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,18 +52,18 @@
 }
 
 .select input{
-	border: 1px solid black;
+	border: 1px solid var(--light-blue);
 }
 
-.addCartModal__content button{
+.addBasketModal__content button{
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 	padding: 1rem;
-	background-color: rgb(40,119,246);
+	background-color:var(--light-blue);
 	border: none;
 	border-radius: .5rem;
 	cursor: pointer;
 	font-family: 'Lato', sans-serif;
-	color: white;
+	color: var(--text);
 }
