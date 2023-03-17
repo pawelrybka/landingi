@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef  } from 'react'
+import React, { useEffect, useContext, useRef  } from 'react'
 import Context from '../../Context/Context'
 import styles from './Main.module.css'
 import axios from 'axios'
@@ -28,9 +28,7 @@ interface basket {
 
 const Main = () => {
     
-    const { setSelectedBasket, baskets, setBaskets } = useContext(Context);
-
-    const[basketInfoVisible, setBasketInfoVisible]= useState(false)
+    const { setSelectedBasket, baskets, setBaskets, basketInfoVisible, setBasketInfoVisible } = useContext(Context);
 
     const shouldLog = useRef(true)
 
@@ -61,12 +59,7 @@ const Main = () => {
             </button>
         ))}
         <AnimatePresence>
-            {basketInfoVisible && 
-                <BasketInfo 
-                    basketInfoVisible={basketInfoVisible}
-                    setBasketInfoVisible={setBasketInfoVisible}
-                />
-            }
+            {basketInfoVisible && <BasketInfo />}
         </AnimatePresence>
     </div>
   )

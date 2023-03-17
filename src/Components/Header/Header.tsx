@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <div className={styles.header}>
           <div className={styles.header__content}>
-              Dashboard
+              <h2>Dashboard</h2>
               <BsBasket3 
                 size={30} 
                 className={styles.icon}
@@ -20,12 +20,10 @@ const Header = () => {
           </div>
       </div>
       {addCartModalVisible && 
-          <AddCartModal
-            addCartModalVisible={addCartModalVisible}
-            setAddCardModalVisible={setAddCardModalVisible}
-          />
-      
-      
+        <AddCartModal
+          addCartModalVisible={addCartModalVisible}
+          setAddCardModalVisible={setAddCardModalVisible}
+        />
       }
     </>
   )

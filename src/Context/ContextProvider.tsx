@@ -27,12 +27,16 @@ type ListProps = {
 
 const ContextProvider = ({ children }: ListProps) => {
     
-    const [selectedBasket, setSelectedBasket] = useState<basket | null>(null);
+    const[selectedBasket, setSelectedBasket] = useState<basket | null>(null);
   
     const[baskets, setBaskets] = useState<basket[]>([])
 
+    const[basketInfoVisible, setBasketInfoVisible] = useState(false)
+
+    const[deleteAlertVisible, setDeleteAlertVisible] = useState(false)
+
     return (
-        <Context.Provider value={{ selectedBasket, setSelectedBasket, baskets, setBaskets }}>
+        <Context.Provider value={{ selectedBasket, setSelectedBasket, baskets, setBaskets, basketInfoVisible, setBasketInfoVisible, deleteAlertVisible, setDeleteAlertVisible }}>
             {children}
         </Context.Provider>
     );

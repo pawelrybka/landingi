@@ -26,6 +26,12 @@ interface BasketContextType {
     
     baskets: basket[] | [],
     setBaskets: (baskets: basket[] | []) => void;
+
+    basketInfoVisible:  boolean,
+    setBasketInfoVisible: React.Dispatch<React.SetStateAction<boolean>>
+
+    deleteAlertVisible: boolean,
+    setDeleteAlertVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Context = createContext<BasketContextType>({
@@ -33,7 +39,13 @@ const Context = createContext<BasketContextType>({
     setSelectedBasket: () => {},
 
     baskets: [],
-    setBaskets: () => {}
+    setBaskets: () => {},
+
+    basketInfoVisible:  false,
+    setBasketInfoVisible: () => {},
+
+    deleteAlertVisible: false,
+    setDeleteAlertVisible: () => {}
 
 });
 

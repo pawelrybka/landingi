@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './BasketInfo.module.css'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Context from '../../Context/Context'
 import Chart from '../Chart/Chart';
 import Backdrop from '../../UI/Backdrop/Backdrop';
@@ -8,29 +8,17 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { motion } from "framer-motion"
 import { BsTrash } from 'react-icons/bs'
 import DeleteAlert from '../DeleteAlert/DeleteAlert';
+import { AnimatePresence } from 'framer-motion';
 
-interface props{
-  basketInfoVisible: boolean
-  setBasketInfoVisible: React.Dispatch<React.SetStateAction<boolean>>
-}
 
-const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
+const BasketInfo = () => {
   
-  const { selectedBasket, setSelectedBasket, baskets, setBaskets } = useContext(Context);
+  const { 
+    selectedBasket, setSelectedBasket, 
+    basketInfoVisible, setBasketInfoVisible, 
+    deleteAlertVisible, setDeleteAlertVisible
+  } = useContext(Context);
   
-  const[deleteAlertVisible, setDeleteAlertVisible] = useState(false)
-
-  // async function handleDelete() {
-  //   const response = await fetch(`https://dummyjson.com/carts/${selectedBasket?.id}`, {
-  //     method: 'DELETE',
-  //     headers: { 'Content-Type': 'application/json' },
-  //   });
-  
-  //   if (response.ok) {
-  //     setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
-  //   }
-  // }
-
   return (
     <>
       <motion.div 
@@ -42,7 +30,7 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
       >
         <div className={styles.basketinfo__header}>
           <div>
-            <span>Basket ID:</span> {selectedBasket?.id}
+            <h3>Basket ID: {selectedBasket?.id}</h3>
           </div>
           <button 
             onClick={() => {
@@ -57,9 +45,6 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
         <div className={styles.basketinfo__buttons}>
           <button
             onClick={() => {
-              // setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
-              // setBasketInfoVisible(!basketInfoVisible)
-              // setSelectedBasket(null)
               setDeleteAlertVisible(!deleteAlertVisible)
             }}
           >
@@ -69,8 +54,9 @@ const BasketInfo = ({ basketInfoVisible, setBasketInfoVisible }: props) => {
         </div>
       </motion.div>
       <Backdrop/>
-      {deleteAlertVisible && <DeleteAlert/>}
-    
+      <AnimatePresence>
+        {deleteAlertVisible && <DeleteAlert/>}
+      </AnimatePresence>
     </>
   )
 }
