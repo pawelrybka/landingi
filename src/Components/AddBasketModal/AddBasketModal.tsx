@@ -51,6 +51,19 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
     });
   }
 
+  const invalidID = () => {
+    toast.error('Invalid ID', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+
   return (
     <>
       <motion.div 
@@ -69,24 +82,23 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
           <div className={styles.select}>
             <input 
               type="number" 
-              id="quantity"
               inputMode='numeric'
-              min={"1"}
-              max={"20"} 
-              name="quantity" 
+              min="1"
+              max="20"
               step="1"
               value={value}
               onChange={(e) => setValue(parseInt(e.target.value))}
             />
             <button
               onClick={() => {
-                if (!baskets.some(basket => basket.id === value)) {
+                if (value > 20) {
+                  invalidID();
+                } else if (!baskets.some(basket => basket.id === value)) {
                   fetchData()
                   setAddBasketModalVisible(!addBasketModalVisible)
                   notify()
                 } else {
                   basketOnList()
-                  setAddBasketModalVisible(!addBasketModalVisible)
                 }
               }}
             >
