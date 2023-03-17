@@ -38,7 +38,7 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
     });
   }
 
-  const error = () => {
+  const basketOnList = () => {
     toast.error('Basket is already on the list', {
       position: "top-center",
       autoClose: 5000,
@@ -65,12 +65,15 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
           <button onClick={() => setAddBasketModalVisible(!addBasketModalVisible)}><AiOutlineClose size={20}/></button>
         </div>
         <div className={styles.addBasketModal__content}>
-          <span>Enter basket ID:</span>
+          <span>Enter basket ID (1-20):</span>
           <div className={styles.select}>
             <input 
               type="number" 
-              id="quantity" 
+              id="quantity"
+              min={"1"}
+              max={"20"} 
               name="quantity" 
+              step={"1"}
               value={value}
               onChange={(e) => setValue(parseInt(e.target.value))}
             />
@@ -80,8 +83,8 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
                   fetchData()
                   setAddBasketModalVisible(!addBasketModalVisible)
                   notify()
-                } else{
-                  error()
+                } else {
+                  basketOnList()
                   setAddBasketModalVisible(!addBasketModalVisible)
                 }
               }}
