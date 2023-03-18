@@ -30,7 +30,7 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
   }
   
   const notify = () => {
-    toast.success('New basket added!', {
+    toast.success('New basket has been added!', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -43,7 +43,7 @@ const AddCartModal = ({ addBasketModalVisible, setAddBasketModalVisible }: Props
   }
 
   const basketOnList = () => {
-    toast.error('Basket is already on the list', {
+    toast.error('Basket is already in the list', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
