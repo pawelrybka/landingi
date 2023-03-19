@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styles from './Header.module.css'
+import React, { useState } from 'react';
+import styles from './Header.module.css';
 import { BsBasket3 } from 'react-icons/bs';
 import AddCartModal from '../AddBasketModal/AddBasketModal';
 import { AnimatePresence } from 'framer-motion';
