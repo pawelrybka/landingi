@@ -13,9 +13,3 @@ it('shows "Invalid ID" error message when user enters a value outside of range 1
     expect(queryByText('Invalid ID')).toBeInTheDocument();
 });
 
-
-
-
-
-
-
