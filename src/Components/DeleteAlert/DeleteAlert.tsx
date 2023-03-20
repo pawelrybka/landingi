@@ -17,7 +17,7 @@ const DeleteAlert = () => {
   } = useContext(Context);
 
   const deleteBasket = () => {
-    toast.success('The cart has been removed', {
+    toast.success('The basket has been removed', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
