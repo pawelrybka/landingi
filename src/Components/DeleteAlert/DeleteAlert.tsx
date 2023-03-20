@@ -5,6 +5,7 @@ import Context from '../../Context/Context'
 import { motion } from "framer-motion"
 import { AiOutlineClose } from 'react-icons/ai'
 import Backdrop from '../../UI/Backdrop/Backdrop'
+import { toast } from 'react-toastify';
 
 const DeleteAlert = () => {
   
@@ -15,11 +16,25 @@ const DeleteAlert = () => {
     deleteAlertVisible, setDeleteAlertVisible
   } = useContext(Context);
 
+  const deleteBasket = () => {
+    toast.success('The cart has been removed', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+  
   const handleRemove = () => {
     setDeleteAlertVisible(!deleteAlertVisible)
     setBasketInfoVisible(!basketInfoVisible)
     setBaskets(baskets.filter(basket => basket.id !== selectedBasket?.id));
     setSelectedBasket(null)
+    deleteBasket()
   }
 
   return (
