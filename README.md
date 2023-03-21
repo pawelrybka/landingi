@@ -1,4 +1,4 @@
-<h1> Landingi Recruitment Task </h1>
+<h1> Dashboard </h1>
 
 <h2>Used Technologies:</h2>
 <ul>
