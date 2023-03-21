@@ -11,4 +11,5 @@
   <li>Framer Motion</li>
   <li>React Icons</li>
   <li>React Toastify</li>
+  <li>Cypress</li>
 </ul>
