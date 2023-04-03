@@ -1,10 +1,14 @@
 .main{
-    flex: 1;
+    padding: 1rem;
+}
+
+.main__content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
+    max-width: 1200px;
     padding: 1rem;
-    overflow: auto;
+    margin: auto;
 }
 
 .main__button{

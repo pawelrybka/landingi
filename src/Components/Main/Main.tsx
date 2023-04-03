@@ -28,25 +28,27 @@ const Main = () => {
     return (
         <>
             <div className={styles.main}>
-                {loading ? baskets.map((basket) => (
-                    <button 
-                        key={basket.id}     
-                        className={styles.main__button} 
-                        onClick={() => {
-                            setBasketInfoVisible(!basketInfoVisible)
-                            setSelectedBasket(basket)
-                        }}
-                    >
-                        <div>
-                            <h1>{basket.id}</h1>
-                            <span>Basket ID</span>
-                        </div>
-                        <BsBasket3 size={30}/>
-                    </button>
-                )) : <LoadingSpinner/>}
-                <AnimatePresence>
-                    {basketInfoVisible && <BasketInfo />}
-                </AnimatePresence>
+                <div className={styles.main__content}>
+                    {loading ? baskets.map((basket) => (
+                        <button 
+                            key={basket.id}     
+                            className={styles.main__button} 
+                            onClick={() => {
+                                setBasketInfoVisible(!basketInfoVisible)
+                                setSelectedBasket(basket)
+                            }}
+                        >
+                            <div>
+                                <h1>{basket.id}</h1>
+                                <span>Basket ID</span>
+                            </div>
+                            <BsBasket3 size={30}/>
+                        </button>
+                    )) : <LoadingSpinner/>}
+                    <AnimatePresence>
+                        {basketInfoVisible && <BasketInfo />}
+                    </AnimatePresence>
+                </div>
             </div>
         </>
     )
